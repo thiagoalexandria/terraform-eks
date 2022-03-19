@@ -85,17 +85,17 @@ variable "map_additional_iam_roles" {
 
   default = [
     {
-      rolearn  = "arn:aws:iam::138511992678:role/OrganizationAccountAccessRole"
+      rolearn  = "arn:aws:iam:::role/OrganizationAccountAccessRole"
       username = "prod.role"
       groups   = ["system:masters"]
     },
     {
-      rolearn  = "arn:aws:iam::138511992678:role/eks-node-role"
+      rolearn  = "arn:aws:iam:::role/eks-node-role"
       username = "system:node:{{EC2PrivateDNSName}}"
       groups   = ["system:bootstrappers","system:nodes"]
     },    
     {
-      rolearn  = "arn:aws:iam::138511992678:role/TerraformSuperAccessRole"
+      rolearn  = "arn:aws:iam:::role/TerraformSuperAccessRole"
       username = "terraform.role"
       groups   = ["system:masters"]
     }
@@ -113,14 +113,9 @@ variable "map_additional_iam_users" {
 
   default = [
     {
-      userarn  = "arn:aws:iam::138511992678:user/kubectl-user"
+      userarn  = "arn:aws:iam:::user/kubectl-user"
       username = "kubectl-user"
       groups   = ["system:masters"]
-    },   
-    {
-      userarn  = "arn:aws:iam::138511992678:user/bruno.santos"
-      username = "bruno.santos"
-      groups   = ["system:masters"]
-    },
+    }
   ]
 }
